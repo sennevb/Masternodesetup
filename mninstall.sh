@@ -13,7 +13,7 @@ os='ubuntu'
 #                   Installation Info                      #
 #----------------------------------------------------------#
 clear
-echo
+echo ''
 echo'   _____                                        _      '            
 echo'  / ____|                                      (_)      '           
 echo' | |     ___  _ __ ___  _ __ ___   ___ _ __ ___ _ _   _ _ __ ___'   
@@ -21,8 +21,8 @@ echo' | |    / _ \| '_ ` _ \| '_ ` _ \ / _ \ '__/ __| | | | | '_ ` _ \'
 echo' | |___| (_) | | | | | | | | | | |  __/ | | (__| | |_| | | | | | |' 
 echo'  \_____\___/|_| |_| |_|_| |_| |_|\___|_|  \___|_|\__,_|_| |_| |_| '
 echo ''
-echo 'Welcome to the commercium automatic masternode installing script v 0.0.01
-echo '                                                     by Sennevb"
+echo 'Welcome to the commercium automatic masternode installing script v 0.0.01'
+echo '                                                     by Sennevb'
 echo '-------------------------------------------------------------------------'
 
                                                                    
