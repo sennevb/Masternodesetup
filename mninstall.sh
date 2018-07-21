@@ -13,23 +13,39 @@ os='ubuntu'
 #                   Installation Info                      #
 #----------------------------------------------------------#
 clear
-echo ""
-echo "   _____                                        _      "            
-echo "  / ____|                                      (_)      "           
-echo " | |     ___  _ __ ___  _ __ ___   ___ _ __ ___ _ _   _ _ __ ___"   
-echo " | |    / _ \| '_ ` _ \| '_ ` _ \ / _ \ '__/ __| | | | | '_ ` _ \"  
-echo " | |___| (_) | | | | | | | | | | |  __/ | | (__| | |_| | | | | | |" 
-echo "  \_____\___/|_| |_| |_|_| |_| |_|\___|_|  \___|_|\__,_|_| |_| |_| "
-echo ""
-echo "Welcome to the commercium automatic masternode installing script v 0.0.01"
-echo "                                                     by Sennevb"
-echo "-------------------------------------------------------------------------"
-
-                                                                   
+echo ''
+echo '   ______                                         _'
+echo '  / ____/___  ____ ___  ____ ___  ___  __________(_)_  ______ ___'
+echo ' / /   / __ \/ __ `__ \/ __ `__ \/ _ \/ ___/ ___/ / / / / __ `__ \'
+echo '/ /___/ /_/ / / / / / / / / / / /  __/ /  / /__/ / /_/ / / / / / /'
+echo '\____/\____/_/ /_/ /_/_/ /_/ /_/\___/_/   \___/_/\__,_/_/ /_/ /_/'
+echo ''
+echo ''
+echo 'Welcome to the commercium automatic masternode installing script v 0.0.01'
+echo '                                                     by Sennevb'
+echo '-------------------------------------------------------------------------'
+echo ''
+echo 'This installation may take several minutes depending on the speed of your vps'
+echo 'During instalaltion some feedback is asked from you'
+read -p 'Ready ? Press ENTER to proceed'
 #----------------------------------------------------------#
 #                      Checking swap                       #
 #----------------------------------------------------------#
-
+clear
+echo ''
+echo '   ______                                         _'
+echo '  / ____/___  ____ ___  ____ ___  ___  __________(_)_  ______ ___'
+echo ' / /   / __ \/ __ `__ \/ __ `__ \/ _ \/ ___/ ___/ / / / / __ `__ \'
+echo '/ /___/ /_/ / / / / / / / / / / /  __/ /  / /__/ / /_/ / / / / / /'
+echo '\____/\____/_/ /_/ /_/_/ /_/ /_/\___/_/   \___/_/\__,_/_/ /_/ /_/'
+echo ''
+echo ''
+echo 'Welcome to the commercium automatic masternode installing script v 0.0.01'
+echo '                                                     by Sennevb'
+echo '-------------------------------------------------------------------------'
+echo ''
+echo 'Step 1 of ? - Checking if your system has enough memory, if not we are going to add some swap space'
+echo '-------------------------------------------------------------------------------------------------------'
 # Checking swap on small instances
 if [ -z "$(swapon -s)" ] && [ $memory -lt 800000 ]; then
     fallocate -l 4G /swapfile
@@ -37,7 +53,11 @@ if [ -z "$(swapon -s)" ] && [ $memory -lt 800000 ]; then
     mkswap /swapfile
     swapon /swapfile
     echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
+    echo "==> progress: we added 4GB of swap to your vps server to speedup your vps"
+else
+   echo "==> progress : Server has enough memory or allready has some swap space, no swap added"
 fi
+
 
 
 #install all the needed dependencies
