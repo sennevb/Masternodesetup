@@ -86,18 +86,14 @@ echo "Upgrading system..."
 sleep 3
 sudo apt-get -y update
 
-# Install fail2ban if needed
-if [ $(dpkg-query -W -f='${Status}' fail2ban 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
+# Install fail2ban 
     echo && echo "Installing fail2ban..."
     sleep 3
     sudo apt-get -y install fail2ban
     sudo service fail2ban restart 
     echo && echo "Fail2ban installed and active..."
     sleep 3
-else
-   echo && echo "Fail2ban allready installed.. skipping."
-   sleep 3
-fi
+
 
 clear
 echo ''
