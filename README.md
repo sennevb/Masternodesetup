@@ -11,4 +11,5 @@ cd masternodesetup
 chmod +x mninstall.sh
 
 Then run the installer with:
+
 bash mninstall.sh
