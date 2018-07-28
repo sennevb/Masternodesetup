@@ -87,13 +87,17 @@ sleep 3
 sudo apt-get -y update
 
 # Install fail2ban 
+if [ $(dpkg-query -W -f='${Status}' fail2ban 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
     echo && echo "Installing fail2ban..."
     sleep 3
     sudo apt-get -y install fail2ban
     sudo service fail2ban restart 
     echo && echo "Fail2ban installed and active..."
     sleep 3
-
+else	
+   echo && echo "Fail2ban allready installed.. skipping."	
+   sleep 3	
+fi
 
 clear
 echo ''
@@ -111,7 +115,6 @@ echo ''
 echo 'Step 2 of 4 - Installing dependencies / Fail2ban / Firewall'
 echo '-------------------------------------------------------------------------------------------------------'
 # Install firewall if needed
-if [ $(dpkg-query -W -f='${Status}' ufw 2>/dev/null | grep -c "ok installed") -eq 0 ]; then
     echo && echo "Installing UFW..."
     sleep 3
     sudo apt-get -y install ufw
@@ -125,10 +128,6 @@ if [ $(dpkg-query -W -f='${Status}' ufw 2>/dev/null | grep -c "ok installed") -e
     echo "y" | sudo ufw enable
     echo && echo "Firewall installed and enabled!"
     sleep 3
-else
-   echo && echo "UFW allready installed... skipping."
-   sleep 3
-fi
 
 clear
 echo ''
@@ -148,14 +147,15 @@ echo '--------------------------------------------------------------------------
    echo && echo "Installing dependencies, hold your horses...."
    echo
 sudo apt-get install software-properties-common -y
-sudo apt-get update
 sudo add-apt-repository -y ppa:bitcoin/bitcoin
+sudo apt-get update
 sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y
-sudo apt-get install libminiupnpc-dev libzmq3-dev  libqrencode-dev -y
+sudo apt-get install libminiupnpc-dev libzmq3-dev  libqrencode-dev libdb4.8-dev libdb4.8++-dev -y
 echo && echo "Yay everything installed! party!!"
+sleep 3
 clear
 echo && echo "All dependencies installed... proceeding to next step."
-   sleep 3 
+sleep 3 
 
 
 
