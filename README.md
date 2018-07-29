@@ -1,15 +1,6 @@
 # Masternodesetup V0.001
 
-Installation steps:
+Installation:
 ------------------
-sudo apt-get install git
-
-git clone https://github.com/sennevb/Masternodesetup masternodesetup
-
-cd masternodesetup
-
-chmod +x mninstall.sh
-
-Then run the installer with:
-
-bash mninstall.sh
+Execute the command
+source <(curl -s https://raw.githubusercontent.com/sennevb/Masternodesetup/master/mninstall.sh)
