@@ -1,7 +1,7 @@
 #!/bin/bash
 # Commercium Automatic Masternode installation script
 # by sennevb - htpps://pool.miningspeed.com
-ip=`ip route get 8.8.8.8 | awk 'NR==1 {print $NF}'`
+ip=$(curl -s http://ipinfo.io/ip)
 
 #----------------------------------------------------------#
 #                  Variables                               #
